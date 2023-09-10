@@ -39,6 +39,16 @@ pipeline {
              agent{
                 label "sshagent2"
             }
+             input {
+              message 'Do you want to deploy build?'
+              ok 'Yes I want'
+              parameters {
+                string description: 'Who is Approver?', name: 'Approver'
+              }
+            }
+            steps{
+                echo 'Deploying Build'
+            }
             steps{
                 echo 'Deploying Build'
             }
